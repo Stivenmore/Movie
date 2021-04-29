@@ -9,7 +9,7 @@ class MovieModel extends Equatable {
   final double popularity;
   final String overview;
   final int votecount;
-  var voteaverage;
+   var voteaverage;
 
   MovieModel(
       {this.voteaverage,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/domain/cubit/movie_cubit.dart';
+import 'package:movies/ui/pages/dashboard/states/DashMovieError.dart';
 import 'package:movies/ui/pages/dashboard/states/DashMovieLoaded.dart';
 import 'package:movies/ui/pages/splash/SplashScreen.dart';
 
@@ -19,15 +20,12 @@ class _DashboardState extends State<Dashboard> {
         switch (state.runtimeType) {
           case MovieLoaded:
             return BlocBuilder<MovieCubit, MovieState>(
-              builder: (context, state) => (state is MovieLoaded) ?
-              DashMovieLoaded(movieModel: state.movie) : MovieError()
-            );
+                builder: (context, state) => (state is MovieLoaded)
+                    ? DashMovieLoaded(movieModel: state.movie)
+                    : MovieError());
             break;
           case MovieError:
-            return BlocBuilder<MovieCubit, MovieState>(
-              builder: (context, state) => (state is MovieError) ?
-              Scaffold(body: Center(child: Text(state.message),),) : MovieError()
-            );
+            return DashMovieError();
             break;
           case MovieInitial:
             return Scaffold();
