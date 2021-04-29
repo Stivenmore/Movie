@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     final cubit = context.read<MovieCubit>();
     super.initState();
-    cubit.getDataApi(1).whenComplete(() {
+    cubit.getDataApi('popular').whenComplete(() {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => Dashboard()));
     });

@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       create: (context) => MovieCubit(),
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
+          title: 'Movies',
           theme: ThemeData(accentColor: Colors.white),
           home: SplashScreen()),
     );

@@ -1,36 +1,37 @@
 import 'package:equatable/equatable.dart';
 
+// ignore: must_be_immutable
 class MovieModel extends Equatable {
   final int id;
   final String name;
-  final String permalink;
   final String startdate;
-  final String enddate;
-  final String country;
-  final String network;
   final String urlimage;
+  final double popularity;
+  final String overview;
+  final int votecount;
+  var voteaverage;
 
   MovieModel(
-      {this.id,
+      {this.voteaverage,
+      this.votecount,
+      this.popularity,
+      this.id,
       this.name,
-      this.permalink,
       this.startdate,
-      this.enddate,
-      this.country,
-      this.network,
-      this.urlimage});
+      this.urlimage,
+      this.overview});
 
   factory MovieModel.fromJson(Map<String, dynamic> map) => MovieModel(
-        name: map['name'],
-        id: map['id'] as int,
-        permalink: map['permalink'],
-        startdate: map['start_date'],
-        enddate: map['end_date'],
-        country: map['country'],
-        network: map['network'],
-        urlimage: map['image_thumbnail_path'],
-  );
+      name: map['original_title'],
+      id: map['id'] as int,
+      startdate: map['release_date'],
+      urlimage: map['poster_path'],
+      overview: map['overview'],
+      popularity: map['popularity'] as double,
+      votecount: map['vote_count'] as int,
+      voteaverage: map['vote_average']);
 
   @override
-  List<Object> get props => [id, name, permalink, startdate, enddate, country, network, urlimage];
+  List<Object> get props =>
+      [id, name, overview, startdate, urlimage, votecount, popularity];
 }

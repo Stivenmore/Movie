@@ -14,9 +14,9 @@ class MovieCubit extends Cubit<MovieState> {
       : _movieRepository = movieRepository ?? MovieRepository(http.Client()),
         super(MovieInitial());
 
-  Future<void> getDataApi(int page) async {
+  Future<void> getDataApi(String collecion) async {
     ServiceResult<List<MovieModel>> result =
-        await _movieRepository.getmovie(page);
+        await _movieRepository.getmovie(collecion);
     if (result.data != null) {
       print('Loaded');
       emit(MovieLoaded(movie: result.data));

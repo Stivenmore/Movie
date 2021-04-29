@@ -9,20 +9,24 @@ class MovieRepository extends ServiceResult {
 
   MovieRepository(this.client);
 
-  Future<ServiceResult<List<MovieModel>>> getmovie(int page) async {
+  Future<ServiceResult<List<MovieModel>>> getmovie(String collecion) async {
     try {
-      var url =
-          Uri.parse('https://www.episodate.com/api/most-popular?page=$page');
+      String apikey = 'api_key=880c434e2d40fb9f2acd3f9773d8296e';
+      var url = Uri.parse(
+          'https://api.themoviedb.org/3/movie/' + collecion + '?' + apikey);
       var response =
           await client.get(url, headers: {"Accept": "application/json"});
 
       if (response.statusCode == 200) {
+        print('hemos entrado en el if');
         var data = jsonDecode(response.body);
 
-        List<MovieModel> moviemodel =
-            (data['tv_shows'] as Iterable).map((e) => MovieModel.fromJson(e)).toList();
+        List<MovieModel> moviemodel = (data['results'] as Iterable)
+            .map((e) => MovieModel.fromJson(e))
+            .toList();
         return ServiceResult(data: moviemodel);
       } else {
+        print('hemos entrado en el else');
         return ServiceResult(mensagge: 'Sin señal');
       }
     } catch (e) {
