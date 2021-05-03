@@ -148,75 +148,91 @@ class _DashMovieLoadedState extends State<DashMovieLoaded> {
                     children: widget.movieModel
                         .sublist(10, 20)
                         .map((e) => Padding(
-                              padding: EdgeInsets.only(
-                                  top: 10,
-                                  left: 10,
-                                  bottom:
-                                      (e == widget.movieModel.last ? 22 : 0)),
-                              child: Flexible(
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      width: 150,
-                                      height: 200,
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(20.0),
-                                        image: DecorationImage(
-                                            image: NetworkImage(
-                                                'https://www.themoviedb.org/t/p/w220_and_h330_face' +
-                                                    e.urlimage),
-                                            fit: BoxFit.cover),
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 10.0,
-                                    ),
-                                    Flexible(
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              e.name,
-                                              style: TextStyle(fontSize: 20.0),
-                                              overflow: TextOverflow.fade,
-                                            ),
-                                            const SizedBox(height: 5,),
-                                            Text(
-                                                'Popularidad: ' +
-                                                    e.popularity.toString(),
-                                                style: TextStyle(
-                                                  fontSize: 16.0,
-                                                  fontWeight: FontWeight.w600,
-                                                  color: Colors.grey,
-                                                )),
-                                            const SizedBox(height: 10,),
-                                            Row(
-                                                children: [
-                                                  Text(e.voteaverage.toString(),
-                                                      style: TextStyle(
-                                                        fontSize: 16.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        color: Colors.grey,
-                                                      )),
-                                                  Icon(
-                                                    Icons.star_outlined,
-                                                    color: Colors.orange,
-                                                  )
-                                                ],
-                                              ),
-                                          ],
+                                padding: EdgeInsets.only(
+                                    top: 10,
+                                    left: 10,
+                                    bottom:
+                                        (e == widget.movieModel.last ? 22 : 0)),
+                                child:  Row(
+                                    children: [
+                                      Container(
+                                        width: 150,
+                                        height: 200,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                          image: DecorationImage(
+                                              image: NetworkImage(
+                                                  'https://www.themoviedb.org/t/p/w220_and_h330_face' +
+                                                      e.urlimage),
+                                              fit: BoxFit.cover),
                                         ),
                                       ),
-                                    )
-                                  ],
-                                ),
+                                      const SizedBox(
+                                        height: 10.0,
+                                      ),
+                                      Flexible(
+                                        child: Column(
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                   Padding(
+                                                     padding: const EdgeInsets.all(1.0),
+                                                     child: Flexible(
+                                                       child: Text(
+                                                            e.name,
+                                                            style: TextStyle(fontSize: 20.0),
+                                                            overflow: TextOverflow.fade,
+                                                        ),
+                                                     ),
+                                                   ),
+                                                  
+                                                  const SizedBox(height: 5,),
+                                                  Padding(
+                                                    padding: const EdgeInsets.all(1.0),
+                                                    child: Flexible(
+                                                      child: Text(
+                                                          'Popularidad: ' +
+                                                              e.popularity.toString(),
+                                                          style: TextStyle(
+                                                            fontSize: 16.0,
+                                                            fontWeight: FontWeight.w600,
+                                                            color: Colors.grey,
+                                                          )),
+                                                    ),
+                                                  ),
+                                                  const SizedBox(height: 10,),
+                                                Padding(
+                                                  padding: const EdgeInsets.all(1.0),
+                                                  child: Flexible(
+                                                      child: Row(
+                                                          children: [
+                                                            Text(e.voteaverage.toString(),
+                                                                style: TextStyle(
+                                                                  fontSize: 16.0,
+                                                                  fontWeight:
+                                                                      FontWeight.w600,
+                                                                  color: Colors.grey,
+                                                                )),
+                                                            Icon(
+                                                              Icons.star_outlined,
+                                                              color: Colors.orange,
+                                                            )
+                                                          ],
+                                                        ),
+                                                    ),
+                                                ),
+                                                ],
+                                              ),
+                                      ),
+                                
+                                   
+                                     
+                                    ],
+                                  ),
+                               
                               ),
-                            ))
+                        )
                         .toList(),
                   ),
                 ),

@@ -31,6 +31,9 @@ dependencies:
   flutter_bloc: ^7.0.0
   equatable: ^1.2.6
   http: ^0.13.2
+  mockito: ^5.0.7
+  injector: ^2.0.0
+  bloc_test: ^8.0.0
 
 dev_dependencies:
   flutter_test:
