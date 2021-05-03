@@ -1,15 +1,18 @@
 # movies
 
-A new Flutter project.
+This repository was created with the intention of helping new developers, it contains implementations such as:
 
-## Getting Started
+1. Cubit (state handler)
+2. Api Rest
+3. Test a Cubit
+4. Management of Cubit states
+5. Entities
+6. Services
+7. Clean architecture
 
-This project is a starting point for a Flutter application.
+Social netword
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- [Linkedin](https://www.linkedin.com/in/stiven-morelo-barahona-61a9a11a5/)
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
